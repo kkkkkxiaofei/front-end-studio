@@ -4,7 +4,7 @@ import './style.css';
 const component = () => {
 	var element = document.createElement('div');
 
-	element.innerHTML = _.join(['Hello1111', 'webpack'], ' ');
+	element.innerHTML = _.join(['Hellosss', 'webpack'], ' ');
 
 	return element;
 }
