@@ -1,12 +1,16 @@
 var path = require('path');
 var webpack = require('webpack');
+var project = require('./project.config.js');
 
 module.exports = {
-	entry: './src/index.js',
+	entry: [
+		'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+		path.resolve(project.basePath, 'src', 'index.js')
+	],
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/'
+		path: path.resolve(project.basePath, 'dist'),
+		publicPath: project.publicPath
 	},
 	module: {
 		rules: [

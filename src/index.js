@@ -1,12 +1,9 @@
-import _ from 'lodash';
-import './style.css';
+require('./style.css');
 
-const component = () => {
-	var element = document.createElement('div');
+var element = document.getElementById('root');
+element.innerHTML = 'Hello Webpack';
 
-	element.innerHTML = _.join(['Hellosss', 'webpack'], ' ');
-
-	return element;
+if (module.hot) {
+  module.hot.accept();
+  module.hot.dispose(() => console.log('Hot Module Dispose...'));
 }
-
-document.body.appendChild(component());

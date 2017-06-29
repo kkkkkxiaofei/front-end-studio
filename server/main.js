@@ -1,35 +1,28 @@
 var express = require("express");
-var webpackDevMiddleware = require("webpack-dev-middleware");
+var path = require('path');
+var project = require('../project.config');
+
+//1.create webpack compiler
 var webpack = require("webpack");
 var webpackConfig = require("../webpack.config");
-var path = require('path');
-var fs = require('fs');
-
-var app = express();
 var compiler = webpack(webpackConfig);
 
-app.use(webpackDevMiddleware(compiler, {
+var app = express();
+
+//2.add webpack-dev-middleware between compiler and node server
+app.use(require("webpack-dev-middleware")(compiler, {
   lazy: false, //compile right now
-  publicPath: "/", // same with webConfig public path
-  contentBase: path.join(__dirname, "dist"),
-  hot: true,
-  watchContentBase: true
+  publicPath: webpackConfig.output.publicPath // same with webConfig public path
 }));
 
+//3.add webpack-hot-middleware between compiler and node server
 app.use(require('webpack-hot-middleware')(compiler, {
 	path: '/__webpack_hmr'
 }));
 
 app.use('*', function (req, res, next) {
-	const filename = path.join(compiler.outputPath, 'index.html');
-	fs.readFile(filename, 'utf8', (err, result) => {
-	  if (err) {
-	    return next(err)
-	  }
-	  res.set('content-type', 'text/html')
-	  res.send(result)
-	  res.end()
-	})
+  const file = path.resolve(project.basePath, project.outDir, 'index.html');
+	res.sendFile(file);
 });
 
 app.listen(3000, function () {
