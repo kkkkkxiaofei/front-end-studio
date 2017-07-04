@@ -6,5 +6,6 @@ module.exports = {
   srcDir: 'src',
   entry: 'index',
   outDir: 'dist',
-  publicPath: '/'
+  publicPath: '/',
+  globals: {}
 }
