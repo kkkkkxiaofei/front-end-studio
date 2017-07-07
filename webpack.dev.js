@@ -1,5 +1,6 @@
 let path = require('path');
 let webpack = require('webpack');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 let project = require('./project.config.js');
 let __DEV__ = project.env === 'development';
 let __PROD__ = project.env === 'production';
@@ -32,6 +33,13 @@ module.exports = {
 	   'process.env': { NODE_ENV: JSON.stringify(project.env) },
 	   __DEV__,
 	   __PROD__,
-	}, project.globals))
+	}, project.globals)),
+	new HtmlWebpackPlugin({
+	   template: path.resolve(project.srcDir, 'index.html'),
+	   inject: true,
+	   minify: {
+		   collapseWhitespace: true,
+	   },
+	})
   ]
 };
