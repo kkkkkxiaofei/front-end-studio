@@ -23,6 +23,11 @@ module.exports = {
 					'style-loader',
 					'css-loader'
 				]
+			},
+			{
+                test: /\.js$/,
+                loaders: ['babel-loader'],
+                include: path.resolve(project.srcDir),
 			}
 		]
    },
