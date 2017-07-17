@@ -11,7 +11,7 @@ module.exports = {
 		path.resolve(project.basePath, 'src', 'index.js')
 	],
 	output: {
-		filename: 'bundle.js',
+		filename: '[name].bundle.js',
 		path: path.resolve(project.basePath, 'dist'),
 		publicPath: project.publicPath
 	},

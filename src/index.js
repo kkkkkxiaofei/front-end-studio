@@ -25,7 +25,6 @@ if (__DEV__) {
                 './containers/App',
                 './routes',
             ], () => {
-                    debugger
                     ReactDOM.unmountComponentAtNode(MOUNT_NODE)
                     render()
                 }
