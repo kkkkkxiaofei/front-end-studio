@@ -7,7 +7,7 @@
     "build:prod": "cross-env NODE_ENV=production webpack --progress --profile --colors",
     "server:prod": "cross-env NODE_ENV=production node ./server/main.js",
     "server:dev": "cross-env NODE_ENV=development node ./server/main.js",
-    "start": "yarn install && yarn build:prod && yarn server:prod"
+    "start": "yarn install --production=false && yarn build:prod && yarn server:prod"
   },
   "keywords": [],
   "author": "",
