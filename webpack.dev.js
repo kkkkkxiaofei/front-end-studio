@@ -1,9 +1,9 @@
-let path = require('path');
-let webpack = require('webpack');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
-let project = require('./project.config.js');
-let __DEV__ = project.env === 'development';
-let __PROD__ = project.env === 'production';
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const project = require('./project.config.js');
+const __DEV__ = project.__DEV__;
+const __PROD__ = project.__PROD__;
 
 module.exports = {
 	entry: [
