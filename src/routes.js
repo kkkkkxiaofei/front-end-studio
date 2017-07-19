@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router'
 import App from './containers/App'
 import Page from './containers/pages/Page';
+import md from '../md.json';
 
 const wrapperedPage = (type, data, Component) => {
     return props => <Component {...{type, data, props}} />
