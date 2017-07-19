@@ -1,11 +1,12 @@
 .app {
   width: 970px;
   margin: 0 auto;
-  overflow: hidden;
 }
 
 .nav {
   color: #ffffff;
+  background-color: #000000;
+  overflow: hidden;
   .title {
     margin: 10px 0;
     font-size: 32px;
