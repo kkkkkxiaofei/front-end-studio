@@ -1,19 +1,44 @@
-import React from 'react'
-import {Link}  from 'react-router'
+import React from 'react';
+import {Link}  from 'react-router';
+import classNames from 'classnames';
+
+const links = [
+    {
+        path: '/popular-framework',
+        title: 'Popular Framework'
+    },
+    {
+        path: '/webpack',
+        title: 'Webpack'
+    },
+    {
+        path: '/css',
+        title: 'CSS'
+    },
+    {
+        path: '/javascript',
+        title: 'Javascript'
+    },
+    {
+        path: '/docker',
+        title: 'Docker/CI'
+    }
+];
 
 export default class App extends React.Component {
     render() {
-        const {children} = this.props
+        const {children, location: {pathname}} = this.props
         return (
             <div className="app">
                 <div className="nav">
                     <p className="title">Front End Studio</p>
                     <ul className="link-group">
-                        <li><Link to="/popular-framework">Popular Framework</Link></li>
-                        <li><Link to="/webpack">Webpack</Link></li>
-                        <li><Link to="/css">CSS</Link></li>
-                        <li><Link to="/javascript">Javascript</Link></li>
-                        <li><Link to="/docker">Docker/CI</Link></li>
+                        {
+                            links.map(
+                                ({path, title}, index) =>
+                                <li><Link className={classNames({actived: pathname === path})} to={path}>{title}</Link></li>
+                            )
+                        }
                     </ul>
                 </div>
                 <div className="main">

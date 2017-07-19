@@ -29,6 +29,7 @@
     "webpack-hot-middleware": "^2.18.2"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "express": "^4.15.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
