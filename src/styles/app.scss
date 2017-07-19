@@ -1,0 +1,28 @@
+.app {
+  width: 970px;
+  margin: 0 auto;
+}
+
+.nav {
+  color: #ffffff;
+  .title {
+    margin: 10px 0;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  .link-group {
+    margin: 20px 0;
+    padding: 0;
+    li {
+      list-style: none;
+      a {
+        color: #ffffff;
+        opacity: .5;
+        text-decoration: none;
+        &:hover, &.actived {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

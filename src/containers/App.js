@@ -7,8 +7,8 @@ export default class App extends React.Component {
         return (
             <div className="app">
                 <div className="nav">
-                    <h1 className="title">Front End Studio</h1>
-                    <ul>
+                    <p className="title">Front End Studio</p>
+                    <ul className="link-group">
                         <li><Link to="/blog">React&Redux</Link></li>
                     </ul>
                 </div>
