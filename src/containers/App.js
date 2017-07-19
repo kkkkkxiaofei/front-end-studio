@@ -9,7 +9,7 @@ export default class App extends React.Component {
                 <div className="nav">
                     <p className="title">Front End Studio</p>
                     <ul className="link-group">
-                        <li><Link to="/blog">Popular Framework</Link></li>
+                        <li><Link to="/popular-framework">Popular Framework</Link></li>
                         <li><Link to="/blog">Webpack</Link></li>
                         <li><Link to="/blog">CSS</Link></li>
                         <li><Link to="/blog">Javascript</Link></li>

@@ -1,0 +1,23 @@
+.framework-page {
+  display: flex;
+}
+
+.left-menu {
+  width: 200px;
+  border-radius: 3px;
+  position: relative;
+  .menu {
+    color: #ffffff;
+  }
+  .mask {
+    background-color: #000000;
+    position: absolute;
+    z-index: -1;
+    opacity: .5;
+  }
+}
+
+.content {
+  flex: 1;
+  background-color: red;
+}
