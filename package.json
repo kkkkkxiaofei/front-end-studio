@@ -10,7 +10,7 @@
     "start": "yarn install --production=false && yarn build:prod && yarn server:prod"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pursue",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.25.0",
