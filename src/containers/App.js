@@ -1,6 +1,9 @@
 import React from 'react';
 import {Link}  from 'react-router';
 import classNames from 'classnames';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {fetchArticle} from '../actions/article';
 
 const links = [
     {
@@ -25,7 +28,10 @@ const links = [
     }
 ];
 
-export default class App extends React.Component {
+class App extends React.Component {
+    componentWillMount() {
+        this.props.actions.fetchArticle();
+    }
     render() {
         const {children, location: {pathname}} = this.props
         return (
@@ -48,3 +54,11 @@ export default class App extends React.Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => (
+    {
+        actions: bindActionCreators({fetchArticle}, dispatch)
+    }
+)
+
+export default connect(null, mapDispatchToProps)(App);

@@ -3,10 +3,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:dev": "cross-env NODE_ENV=development webpack --progress --profile --colors",
-    "build:prod": "cross-env NODE_ENV=production webpack --progress --profile --colors",
-    "server:prod": "cross-env NODE_ENV=production node ./server/main.js",
-    "server:dev": "cross-env NODE_ENV=development node ./server/main.js",
+    "build:dev": "cross-env NODE_ENV=development webpack --progress --profile --colors && yarn html",
+    "build:prod": "cross-env NODE_ENV=production webpack --progress --profile --colors && yarn html",
+    "server:prod": "cross-env NODE_ENV=production node ./server/main.js && yarn html",
+    "server:dev": "cross-env NODE_ENV=development node ./server/main.js && yarn html",
     "start": "yarn install --production=false && yarn build:prod && yarn server:prod",
     "html": "node ./scripts/md2html"
   },

@@ -1,8 +1,8 @@
-export const BLOG_FETCH = 'BLOG_FETCH'
+export const ARTICLE = 'ARTICLE'
 
-export const fetchBlog = () => {
+export const fetchArticle = () => {
     return {
-        type: BLOG_FETCH,
+        type: ARTICLE,
         data: []
     }
 }
