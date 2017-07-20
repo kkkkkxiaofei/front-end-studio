@@ -1,5 +1,4 @@
 import React from 'react';
-import 'babel-polyfill';
 import 'isomorphic-fetch';
 import {connect} from 'react-redux';
 
