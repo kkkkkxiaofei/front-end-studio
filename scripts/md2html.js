@@ -3,9 +3,10 @@ console.log('Converting Start ...');
 
     var showdown  = require('showdown'),
         fs = require('fs'),
+        shell = require('shelljs'),
         converter = new showdown.Converter({tables: true}),
         mdDir = 'mds',
-        viewDir = 'views',
+        viewDir = 'dist/views',
         mdStructure = {};
     function md2Html(dir) {
         var files = fs.readdirSync(dir);
@@ -18,6 +19,7 @@ console.log('Converting Start ...');
                 var mdContent = fs.readFileSync(path).toString();
                 var html = converter.makeHtml(mdContent);
                 var newFileName = fileName.replace('.md', '');
+                shell.mkdir('-p', viewDir + '/' + type);
                 var viewPath = viewDir + '/' + type + '/' + newFileName + '.html';
                 console.log(viewPath);
                 fs.writeFile(viewPath, html, function(err) {
@@ -36,7 +38,7 @@ console.log('Converting Start ...');
 
     function toJson(mdStructure) {
         var json = JSON.stringify(mdStructure);
-        fs.writeFile('md.json', json, function(err) {
+        fs.writeFile('dist/md.json', json, function(err) {
             if(err) return console.log(err)
         });
     }
