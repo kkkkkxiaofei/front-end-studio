@@ -11,42 +11,27 @@ const wrapperedPage = (type, data, Component) => {
 const pages = [
     {
         type: 'popular-framework',
-        data: {
-            menu: 'popular-framework menu',
-            content: 'popular-framework content'
-        },
+        data: md['popular-framework'],
         component: Page
     },
     {
         type: 'webpack',
-        data: {
-            menu: 'webpack menu',
-            content: 'webpack content'
-        },
+        data: md['popular-framework'],
         component: Page
     },
     {
         type: 'css',
-        data: {
-            menu: 'css menu',
-            content: 'css content'
-        },
+        data: md['popular-framework'],
         component: Page
     },
     {
         type: 'javascript',
-        data: {
-            menu: 'javascript menu',
-            content: 'javascript content'
-        },
+        data: md['popular-framework'],
         component: Page
     },
     {
         type: 'docker',
-        data: {
-            menu: 'docker menu',
-            content: 'docker content'
-        },
+        data: md['popular-framework'],
         component: Page
     }
 ];

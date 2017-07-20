@@ -20,13 +20,16 @@ if (project.__DEV__) {
   app.use(require('webpack-hot-middleware')(compiler, {
       path: '/__webpack_hmr'
   }));
+
 }
+
+app.use("/", express.static(path.resolve(project.basePath)));
 
 if (project.__PROD__) {
   app.use("/", express.static(path.resolve(project.basePath, project.outDir)));
 }
 
-app.use('*', function (req, res) {
+app.use('/', function (req, res) {
   const file = path.resolve(project.basePath, project.outDir, 'index.html');
 	res.sendFile(file);
 });
