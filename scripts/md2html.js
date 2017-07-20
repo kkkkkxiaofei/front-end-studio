@@ -19,10 +19,11 @@ console.log('Converting Start ...');
                 var mdContent = fs.readFileSync(path).toString();
                 var html = converter.makeHtml(mdContent);
                 var newFileName = fileName.replace('.md', '');
-                shell.mkdir('-p', viewDir + '/' + type);
-                var viewPath = 'dist' + '/' + viewDir + '/' + type + '/' + newFileName + '.html';
-                console.log(viewPath);
-                fs.writeFile(viewPath, html, function(err) {
+                var viewPath = 'dist' + '/' + viewDir + '/' + type;
+                shell.mkdir('-p', viewPath);
+                var newFilePath = viewPath  + '/' + newFileName + '.html';
+                console.log(newFilePath);
+                fs.writeFile(newFilePath, html, function(err) {
                     if(err) return console.log(err)
                 });
                 mdStructure[type] = mdStructure[type] || [];

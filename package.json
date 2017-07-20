@@ -5,9 +5,9 @@
   "scripts": {
     "build:dev": "yarn html && cross-env NODE_ENV=development webpack --progress --profile --colors",
     "build:prod": "yarn html &&  cross-env NODE_ENV=production webpack --progress --profile --colors",
-    "server:prod": "yarn html &&  cross-env NODE_ENV=production node ./server/main.js && yarn html",
-    "server:dev": "yarn html &&  cross-env NODE_ENV=development node ./server/main.js && yarn html",
-    "start": "yarn install --production=false && yarn build:prod && yarn server:prod",
+    "server:dev": "yarn build:dev &&  cross-env NODE_ENV=development node ./server/main.js",
+    "server:prod": "yarn build:prod && cross-env NODE_ENV=production node ./server/main.js",
+    "start": "yarn install --production=false && yarn server:prod",
     "html": "node ./scripts/md2html"
   },
   "keywords": [],
