@@ -6,7 +6,7 @@ console.log('Converting Start ...');
         shell = require('shelljs'),
         converter = new showdown.Converter({tables: true}),
         mdDir = 'mds',
-        viewDir = 'dist/views',
+        viewDir = 'views',
         mdStructure = {};
     function md2Html(dir) {
         var files = fs.readdirSync(dir);
@@ -20,7 +20,7 @@ console.log('Converting Start ...');
                 var html = converter.makeHtml(mdContent);
                 var newFileName = fileName.replace('.md', '');
                 shell.mkdir('-p', viewDir + '/' + type);
-                var viewPath = viewDir + '/' + type + '/' + newFileName + '.html';
+                var viewPath = 'dist' + '/' + viewDir + '/' + type + '/' + newFileName + '.html';
                 console.log(viewPath);
                 fs.writeFile(viewPath, html, function(err) {
                     if(err) return console.log(err)
@@ -28,7 +28,7 @@ console.log('Converting Start ...');
                 mdStructure[type] = mdStructure[type] || [];
                 mdStructure[type].push({
                     title: fileName,
-                    src: viewPath
+                    url: viewDir + '/' + type + '/' + newFileName + '.html'//dist is the static directory
                 });
             } else {
                 md2Html(path);

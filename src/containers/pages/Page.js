@@ -1,36 +1,40 @@
-import React from 'react'
+import React from 'react';
+import 'babel-polyfill';
 import 'isomorphic-fetch';
+import {connect} from 'react-redux';
 
-export default class Page extends React.Component {
-
+class Page extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            article: ''
+            content: {}
         };
     }
     componentDidMount() {
-        const data = this.props.data;
-        fetch(data[0].src, {method: "GET"})
+        const {article, type} = this.props;
+        const articles = article[type];
+        fetch(articles[0].url, {method: "GET"})
             .then((response) => {
-                debugger
                 return response.text();
             })
-            .then(article => {
-                console.log(article)
-                this.setState({article})
+            .then(content => {
+                console.log(content)
+                this.setState({content})
             })
     }
     render() {
-        const {type, data} = this.props;
+        const {type, article} = this.props;
+        const articles = article[type];
         return (
             <div className={type}>
                 <div className="left-menu">
                     <div className="mask"></div>
-                    <div className="menu"></div>
+                    <div className="menu">{articles[0].title}</div>
                 </div>
-                <div className="content" dangerouslySetInnerHTML={{__html: this.state.article}}></div>
+                <div className="content" dangerouslySetInnerHTML={{__html: this.state.content}}></div>
             </div>
         )
     }
 }
+
+export default connect(state => ({article: state.article}))(Page)

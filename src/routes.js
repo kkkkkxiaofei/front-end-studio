@@ -3,8 +3,8 @@ import { Route } from 'react-router'
 import App from './containers/App'
 import Page from './containers/pages/Page';
 
-const wrapperedPage = (type, data, Component) => {
-    return props => <Component {...{type, data, props}} />
+const wrapperedPage = (type, Component) => {
+    return props => <Component {...{type, props}} />
 }
 
 const pages = [
@@ -33,7 +33,7 @@ const pages = [
 export default (
     <Route path="/" component={App}>
         {
-            pages.map(({type, data, component}, index) => <Route path={`/${type}`} component={wrapperedPage(type, data, component)} />)
+            pages.map(({type, data, component}, index) => <Route path={`/${type}`} component={wrapperedPage(type, component)} />)
         }
     </Route>
 )

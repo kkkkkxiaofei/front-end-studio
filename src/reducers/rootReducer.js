@@ -3,5 +3,5 @@ import { routerReducer as routing } from 'react-router-redux'
 import articleReducer from './articleReducer';
 export default combineReducers({
     routing,
-    articles: articleReducer
+    article: articleReducer
 })
