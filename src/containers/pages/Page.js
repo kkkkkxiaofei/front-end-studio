@@ -9,8 +9,8 @@ class Page extends React.Component {
             content: {}
         };
     }
-    componentWillReceiveProps(nextProps) {
-        const {article = {}, type} = nextProps;
+    getContent(nextProps) {
+        const {article = {}, type} = nextProps || this.props;
         const articles = article[type] || [];
         if (articles.length > 0) {
             fetch(articles[0].url, {method: "GET"})
@@ -22,6 +22,12 @@ class Page extends React.Component {
                     this.setState({content})
                 })
         }
+    }
+    componentWillReceiveProps(nextProps) {
+        this.getContent(nextProps);
+    }
+    componentDidMount() {
+        this.getContent();
     }
     render() {
         const {type, article ={}} = this.props;
