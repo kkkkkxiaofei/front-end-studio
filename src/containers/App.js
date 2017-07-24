@@ -19,8 +19,8 @@ const links = [
         title: 'CSS'
     },
     {
-        path: '/javascript',
-        title: 'Javascript'
+        path: '/ecmascript',
+        title: 'ECMAScript'
     },
     {
         path: '/docker',

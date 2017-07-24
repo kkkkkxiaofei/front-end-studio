@@ -21,7 +21,7 @@ const pages = [
         component: Page
     },
     {
-        type: 'javascript',
+        type: 'ecmascript',
         component: Page
     },
     {
