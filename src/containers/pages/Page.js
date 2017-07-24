@@ -3,11 +3,8 @@ import 'isomorphic-fetch';
 import {connect} from 'react-redux';
 
 class Page extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            content: ''
-        };
+    state = {
+        content: ''
     }
     hightBlocks() {
         document.querySelectorAll('pre code').forEach(elem => hljs.highlightBlock(elem))
