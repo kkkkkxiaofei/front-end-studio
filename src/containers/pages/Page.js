@@ -6,8 +6,11 @@ class Page extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            content: {}
+            content: ''
         };
+    }
+    hightBlocks() {
+        document.querySelectorAll('pre code').forEach(elem => hljs.highlightBlock(elem))
     }
     getContent(nextProps) {
         const {article = {}, type} = nextProps || this.props;
@@ -18,7 +21,7 @@ class Page extends React.Component {
                     return response.text();
                 })
                 .then(content => {
-                    this.setState({content}, hljs.initHighlighting);
+                    this.setState({content}, this.hightBlocks);
                 })
         }
     }
