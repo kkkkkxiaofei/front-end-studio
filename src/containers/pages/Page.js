@@ -18,8 +18,7 @@ class Page extends React.Component {
                     return response.text();
                 })
                 .then(content => {
-                    console.log(content)
-                    this.setState({content})
+                    this.setState({content}, hljs.initHighlighting);
                 })
         }
     }
