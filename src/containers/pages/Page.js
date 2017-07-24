@@ -2,7 +2,8 @@ import React from 'react';
 import 'isomorphic-fetch';
 import {connect} from 'react-redux';
 
-class Page extends React.Component {
+@connect(state => ({article: state.article}))
+export default class Page extends React.Component {
     state = {
         content: ''
     }
@@ -14,12 +15,12 @@ class Page extends React.Component {
         const articles = article[type] || [];
         if (articles.length > 0) {
             fetch(articles[0].url, {method: "GET"})
-                .then((response) => {
-                    return response.text();
-                })
-                .then(content => {
-                    this.setState({content}, this.hightBlocks);
-                })
+            .then((response) => {
+                return response.text();
+            })
+            .then(content => {
+                this.setState({content}, this.hightBlocks);
+            })
         }
     }
     componentWillReceiveProps(nextProps) {
@@ -45,5 +46,3 @@ class Page extends React.Component {
         return null;
     }
 }
-
-export default connect(state => ({article: state.article}))(Page)
