@@ -1,0 +1,1 @@
+向React Component传递props的几种方式

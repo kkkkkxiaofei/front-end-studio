@@ -10,11 +10,11 @@ export default class Page extends React.Component {
     hightBlocks() {
         document.querySelectorAll('pre code').forEach(elem => hljs.highlightBlock(elem))
     }
-    getContent(nextProps) {
+    getContent(nextProps, index = 0) {
         const {article = {}, type} = nextProps || this.props;
         const articles = article[type] || [];
         if (articles.length > 0) {
-            fetch(articles[0].url, {method: "GET"})
+            fetch(articles[index].url, {method: "GET"})
             .then((response) => {
                 return response.text();
             })
@@ -37,7 +37,11 @@ export default class Page extends React.Component {
                 <div className={type}>
                     <div className="left-menu">
                         <div className="mask"></div>
-                        <div className="menu">{articles[0].title}</div>
+                        <ul className="menu">
+                            {
+                                articles.map(({title}, index) => <li key={index} onClick={() => {this.getContent(null, index);}}>{title}</li>)
+                            }
+                        </ul>
                     </div>
                     <div className="content" dangerouslySetInnerHTML={{__html: this.state.content}}></div>
                 </div>
