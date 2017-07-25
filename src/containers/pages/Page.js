@@ -3,6 +3,7 @@ import 'isomorphic-fetch';
 import {connect} from 'react-redux';
 import _ from 'lodash';
 import {Link}  from 'react-router';
+import classNames from 'classnames';
 
 @connect(state => ({article: state.article}))
 export default class Page extends React.Component {
@@ -44,19 +45,28 @@ export default class Page extends React.Component {
         const url = _.get(articles, '[0].url');
         this.fetchArticle(url)
     }
+    renderMenu(type) {
+        const {props: {params: {articleId}}, article} = this.props;
+        const articles = article[type];
+        let activedId = _.get(_.find(articles, ({id}) => id === articleId), 'id');
+        activedId = activedId || _.get(articles, '[0].id');
+        return (
+            <div className="left-menu">
+                <div className="mask"></div>
+                <ul className="menu">
+                    {
+                        this.getArticles().map(({title, id}, index) =>
+                            <li key={index} className={classNames({actived: id === activedId})}><Link to={`/${type}/${id}`}>{title}</Link></li>)
+                    }
+                </ul>
+            </div>
+        )
+    }
     render() {
-        console.log('render');
         const {type} = this.props;
         return (
             <div className={type}>
-                <div className="left-menu">
-                    <div className="mask"></div>
-                    <ul className="menu">
-                        {
-                            this.getArticles().map(({title, id}, index) => <li key={index}><Link to={`/${type}/${id}`}>{title}</Link></li>)
-                        }
-                    </ul>
-                </div>
+                {this.renderMenu(type)}
                 <div className="content" dangerouslySetInnerHTML={{__html: this.state.article}}></div>
             </div>
         )
