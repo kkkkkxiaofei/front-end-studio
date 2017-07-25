@@ -9,7 +9,6 @@ export const fetchArticle = () => {
                 return response.text();
             })
             .then(article => {
-                console.log(article)
                 dispatch({
                     type: ARTICLE_FETCH,
                     data: article

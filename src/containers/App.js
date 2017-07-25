@@ -29,7 +29,7 @@ const links = [
 ];
 
 class App extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.actions.fetchArticle();
     }
     render() {
@@ -42,7 +42,7 @@ class App extends React.Component {
                         {
                             links.map(
                                 ({path, title}, index) =>
-                                <li><Link className={classNames({actived: pathname === path})} to={path}>{title}</Link></li>
+                                <li key={index}><Link className={classNames({actived: pathname === path})} to={`${path}/index`}>{title}</Link></li>
                             )
                         }
                     </ul>

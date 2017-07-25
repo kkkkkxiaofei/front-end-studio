@@ -33,7 +33,9 @@ const pages = [
 export default (
     <Route path="/" component={App}>
         {
-            pages.map(({type, data, component}, index) => <Route path={`/${type}`} component={wrapperedPage(type, component)} />)
+            pages.map(
+                ({type, data, component}, index) =>
+                <Route key={index} path={`/${type}/:articleId`} component={wrapperedPage(type, component)} />)
         }
     </Route>
 )

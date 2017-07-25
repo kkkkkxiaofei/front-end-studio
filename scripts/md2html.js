@@ -4,6 +4,7 @@ console.log('Converting Start ...');
     var showdown  = require('showdown'),
         fs = require('fs'),
         shell = require('shelljs'),
+        _ = require('lodash'),
         converter = new showdown.Converter({tables: true}),
         mdDir = 'mds',
         viewDir = 'views',
@@ -28,8 +29,9 @@ console.log('Converting Start ...');
                 });
                 mdStructure[type] = mdStructure[type] || [];
                 mdStructure[type].push({
+                    id: _.uniqueId(),
                     title: fileName,
-                    url: viewDir + '/' + type + '/' + newFileName + '.html'//dist is the static directory
+                    url: '/' + viewDir + '/' + type + '/' + newFileName + '.html'//dist is the static directory
                 });
             } else {
                 md2Html(path);
