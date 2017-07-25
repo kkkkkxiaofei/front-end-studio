@@ -11,7 +11,7 @@ a:active {
 
 p {
   font-size: 1rem;
-  margin-bottom: 1.3rem;
+  margin: 1rem 0;
 }
 
 h1,
@@ -25,31 +25,27 @@ h4 {
 
 h1 {
   margin-top: 0;
-  font-size: 3.998rem;
+  font-size: 3.5rem;
 }
 
 h2 {
-  font-size: 2.827rem;
+  font-size: 3rem;
 }
 
 h3 {
-  font-size: 1.999rem;
+  font-size: 2.5rem;
 }
 
 h4 {
-  font-size: 1.414rem;
+  font-size: 2rem;
 }
 
 h5 {
-  font-size: 1.121rem;
+  font-size: 1.5rem;
 }
 
 h6 {
-  font-size: .88rem;
-}
-
-small {
-  font-size: .707em;
+  font-size: 1rem;
 }
 
 /* https://github.com/mrmrs/fluidity */
@@ -70,8 +66,6 @@ blockquote {
 }
 
 pre {
-  padding: .5rem;
-  line-height: 1.25;
   overflow-x: scroll;
   background-color: #333;
 }
