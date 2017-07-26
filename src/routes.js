@@ -27,7 +27,12 @@ const pages = [
     {
         type: 'docker',
         component: Page
-    }
+    },
+    {
+        type: 'thinking',
+        component: Page
+    },
+
 ];
 
 export default (

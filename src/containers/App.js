@@ -25,6 +25,10 @@ const links = [
     {
         path: '/docker',
         title: 'Docker/CI'
+    },
+    {
+        path: '/thinking',
+        title: 'Thinking'
     }
 ];
 
