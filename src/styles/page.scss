@@ -19,7 +19,7 @@
       margin: .5rem 0;
       cursor: pointer;
       opacity: .5;
-      &.actived {
+      &.actived, &:hover {
         opacity: 1;
       }
       a {
