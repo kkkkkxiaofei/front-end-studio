@@ -9,11 +9,7 @@ const wrapperedPage = (type, Component) => {
 
 const pages = [
     {
-        type: 'popular-framework',
-        component: Page
-    },
-    {
-        type: 'webpack',
+        type: 'ecmascript',
         component: Page
     },
     {
@@ -21,18 +17,17 @@ const pages = [
         component: Page
     },
     {
-        type: 'ecmascript',
+        type: 'deploy',
         component: Page
     },
     {
-        type: 'docker',
+        type: 'others',
         component: Page
     },
     {
         type: 'thinking',
         component: Page
-    },
-
+    }
 ];
 
 export default (

@@ -7,24 +7,20 @@ import {fetchArticle} from '../actions/article';
 
 const links = [
     {
-        path: '/popular-framework',
-        title: 'Popular Framework'
-    },
-    {
-        path: '/webpack',
-        title: 'Webpack'
-    },
-    {
-        path: '/css',
-        title: 'CSS'
-    },
-    {
         path: '/ecmascript',
         title: 'ECMAScript'
     },
     {
-        path: '/docker',
-        title: 'Docker/CI'
+        path: '/css',
+        title: 'HTML/CSS'
+    },
+    {
+        path: '/deploy',
+        title: 'Deploy'
+    },
+    {
+        path: '/others',
+        title: 'Others'
     },
     {
         path: '/thinking',
