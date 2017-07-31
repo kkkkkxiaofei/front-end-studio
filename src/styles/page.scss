@@ -1,8 +1,8 @@
-.popular-framework,
-.webpack,
 .css,
 .ecmascript,
-.docker {
+.deploy,
+.others,
+.thinking {
   display: flex;
 }
 
@@ -41,6 +41,7 @@
 .content {
   flex: 1;
   padding: 10px;
+  max-width: 750px;
   @import "./md/retro";
   @import "./md/agate";
 }

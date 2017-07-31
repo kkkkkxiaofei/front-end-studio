@@ -8,7 +8,8 @@
     "server:dev": "yarn build:dev &&  cross-env NODE_ENV=development node ./server/main.js",
     "server:prod": "yarn build:prod && cross-env NODE_ENV=production node ./server/main.js",
     "start": "yarn install --production=false && yarn server:prod",
-    "html": "node ./scripts/md2html"
+    "html": "node ./scripts/md2html",
+    "test": "yarn mocha ./tests/**/*.spec.js"
   },
   "keywords": [],
   "author": "Pursue",
@@ -25,6 +26,7 @@
     "css-loader": "^0.28.4",
     "highlight": "^0.2.4",
     "html-webpack-plugin": "^2.29.0",
+    "mocha": "^3.4.2",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
     "shelljs": "^0.7.8",
