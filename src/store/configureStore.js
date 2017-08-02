@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers/rootReducer';
+import logger from '../middlewares/logger';
 
 export default function configureStore(initialState) {
     const enhancers = [];
@@ -16,7 +17,7 @@ export default function configureStore(initialState) {
         rootReducer,
         initialState,
         composeEnhancers(
-            applyMiddleware(thunk),
+            applyMiddleware(thunk, logger),
             ...enhancers
         )
     );
