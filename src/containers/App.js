@@ -33,7 +33,7 @@ class App extends React.Component {
         this.props.actions.fetchArticle();
     }
     render() {
-        const {children, location: {pathname}} = this.props
+        const {children, location: {pathname}} = this.props;
         return (
             <div className="app">
                 <div className="nav">
@@ -51,7 +51,7 @@ class App extends React.Component {
                     {children}
                 </div>
             </div>
-        )
+        );
     }
 }
 
@@ -59,6 +59,6 @@ const mapDispatchToProps = dispatch => (
     {
         actions: bindActionCreators({fetchArticle}, dispatch)
     }
-)
+);
 
 export default connect(null, mapDispatchToProps)(App);

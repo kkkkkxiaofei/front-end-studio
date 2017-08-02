@@ -15,17 +15,17 @@ export default class Page extends React.Component {
         return article[type] || [];
     }
     hightBlocks() {
-        document.querySelectorAll('pre code').forEach(elem => hljs.highlightBlock(elem))
+        document.querySelectorAll('pre code').forEach(elem => hljs.highlightBlock(elem));
     }
     fetchArticle(url) {
         if (url) {
-            fetch(url, {method: "GET"})
+            fetch(url, {method: 'GET'})
             .then((response) => {
                 return response.text();
             })
             .then(article => {
                 this.setState({article}, this.hightBlocks);
-            })
+            });
         }
     }
     getArticle(articleId) {
@@ -43,7 +43,7 @@ export default class Page extends React.Component {
     componentWillMount() {
         const articles = this.getArticles();
         const url = _.get(articles, '[0].url');
-        this.fetchArticle(url)
+        this.fetchArticle(url);
     }
     renderMenu(type) {
         const {props: {params: {articleId}}, article} = this.props;
@@ -60,7 +60,7 @@ export default class Page extends React.Component {
                     }
                 </ul>
             </div>
-        )
+        );
     }
     render() {
         const {type} = this.props;
@@ -69,6 +69,6 @@ export default class Page extends React.Component {
                 {this.renderMenu(type)}
                 <div className="content" dangerouslySetInnerHTML={{__html: this.state.article}}></div>
             </div>
-        )
+        );
     }
 }

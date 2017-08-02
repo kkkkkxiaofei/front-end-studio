@@ -25,7 +25,7 @@ console.log('Converting Start ...');
                 var newFilePath = viewPath  + '/' + newFileName + '.html';
                 console.log(newFilePath);
                 fs.writeFile(newFilePath, html, function(err) {
-                    if(err) return console.log(err)
+                    if(err) return console.log(err);
                 });
                 mdStructure[type] = mdStructure[type] || [];
                 mdStructure[type].push({
@@ -42,7 +42,7 @@ console.log('Converting Start ...');
     function toJson(mdStructure) {
         var json = JSON.stringify(mdStructure);
         fs.writeFile('dist/md.json', json, function(err) {
-            if(err) return console.log(err)
+            if(err) return console.log(err);
         });
     }
 

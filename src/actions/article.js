@@ -4,7 +4,7 @@ export const ARTICLE_FETCH = 'ARTICLE';
 
 export const fetchArticle = () => {
     return dispatch => {
-        return fetch('/md.json', {method: "GET"})
+        return fetch('/md.json', {method: 'GET'})
             .then((response) => {
                 return response.text();
             })
@@ -13,6 +13,6 @@ export const fetchArticle = () => {
                     type: ARTICLE_FETCH,
                     data: article
                 });
-            })
-    }
-}
+            });
+    };
+};

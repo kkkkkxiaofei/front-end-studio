@@ -1,5 +1,5 @@
 import React from 'react';
-import Test from "../src/containers/pages/Test";
+import Test from '../src/containers/pages/Test';
 
 describe('<Test/>', function() {
     it('should render title', function() {

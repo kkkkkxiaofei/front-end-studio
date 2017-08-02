@@ -9,13 +9,16 @@
     "server:prod": "yarn build:prod && cross-env NODE_ENV=production node ./server/main.js",
     "start": "yarn install --production=false && yarn server:prod",
     "html": "node ./scripts/md2html",
-    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --require ./testHelper.js ./tests/**/*.spec.js"
+    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --require ./testHelper.js ./tests/**/*.spec.js",
+    "lint": "eslint .",
+    "fix": "eslint --fix ."
   },
   "keywords": [],
   "author": "Pursue",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.24.1",
@@ -24,6 +27,7 @@
     "babel-preset-stage-1": "^6.24.1",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
+    "eslint": "^4.3.0",
     "highlight": "^0.2.4",
     "html-webpack-plugin": "^2.29.0",
     "mocha": "^3.4.2",
