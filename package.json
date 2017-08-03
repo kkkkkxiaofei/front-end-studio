@@ -25,8 +25,10 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-1": "^6.24.1",
+    "chai": "^4.1.0",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
+    "enzyme": "^2.9.1",
     "eslint": "^4.3.0",
     "highlight": "^0.2.4",
     "html-webpack-plugin": "^2.29.0",
@@ -55,5 +57,7 @@
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0"
   },
-  "pre-commit": ["lint"]
+  "pre-commit": [
+    "lint"
+  ]
 }
